@@ -123,7 +123,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     else {
         TreeNode* successor = minimum(temp->right);
-        int succKey = successor->pair->key;
+        void* succKey = successor->pair->key;
         void* succData = successor->pair->value;
         removeNode(tree, successor);
         temp->pair->key = succKey;
