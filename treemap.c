@@ -169,18 +169,19 @@ Pair * upperBound(TreeMap * tree, void* key) {
     if (tree == NULL || tree->root == NULL) return NULL;
     TreeNode * aux = tree->root;
     TreeNode * result = NULL;
+
     while(aux != NULL){
         if(tree->lower_than(key, aux->pair->key)){
+            // Current node is a potential upper bound
             result = aux;
             aux = aux->left;
-        } else if(tree->lower_than(key, aux->pair->key) == 0){
+        } else {
+            // Current node and its left subtree are not upper bounds
             aux = aux->right;
         }
-        else{
-            return aux->pair;
-        }
     }
-    return result->pair;
+
+    return result ? result->pair : NULL;
 }
 
 
