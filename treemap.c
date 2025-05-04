@@ -126,11 +126,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     else {
         TreeNode* successor = minimum(temp->right);
-        void* succKey = successor->pair->key;
-        void* succData = successor->pair->value;
+        Pair* tempPair = temp->pair;
+        temp->pair = successor->pair;
+        successor->pair = tempPair;
         removeNode(tree, successor);
-        temp->pair->key = succKey;
-        temp->pair->value = succData;
     }
 }
 
@@ -165,21 +164,8 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 }
 
 
-Pair * upperBound(TreeMap * tree, void* key) {
-    if (tree == NULL || tree->root == NULL) return NULL;
-    TreeNode * aux = tree->root;
-    TreeNode * result = NULL;
-
-    while(aux != NULL){
-        if(tree->lower_than(key, aux->pair->key)) {
-            result = aux;
-            aux = aux->left;
-        } else {
-            aux = aux->right;
-        }
-    }
-
-    return result ? result->pair : NULL;
+Pair * upperBound(TreeMap * tree, void* key){
+    return NULL;
 }
 
 
