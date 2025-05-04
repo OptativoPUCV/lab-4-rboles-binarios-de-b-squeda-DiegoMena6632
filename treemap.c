@@ -172,11 +172,9 @@ Pair * upperBound(TreeMap * tree, void* key){
 
     while (aux != NULL) {
         if (tree->lower_than(key, aux->pair->key)) {
-            // key < aux->key → posible upper bound
             result = aux;
             aux = aux->left;
         } else {
-            // key >= aux->key → seguir buscando a la derecha
             aux = aux->right;
         }
     }
