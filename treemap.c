@@ -171,12 +171,10 @@ Pair * upperBound(TreeMap * tree, void* key) {
     TreeNode * result = NULL;
 
     while(aux != NULL){
-        if(tree->lower_than(key, aux->pair->key)){
-            // Current node is a potential upper bound
+        if(tree->lower_than(key, aux->pair->key)) {
             result = aux;
             aux = aux->left;
         } else {
-            // Current node and its left subtree are not upper bounds
             aux = aux->right;
         }
     }
