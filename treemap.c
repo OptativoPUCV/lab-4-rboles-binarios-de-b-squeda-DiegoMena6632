@@ -176,11 +176,11 @@ Pair * upperBound(TreeMap * tree, void* key) {
         } else if(key > temp->pair->key) {
             temp = temp->right;
         } else {
-            return temp->pair;  // Si la clave es igual a la del nodo, retornamos el nodo
+            return temp->pair;
         }
     }
 
-    return result->pair;  // Retorna NULL si todas las claves son menores que la dada
+    return result->pair;
 }
 
 
